@@ -1,3 +1,5 @@
+package Jogos;
+
 import java.util.ArrayList;
 
 public class Jogos {
@@ -24,6 +26,14 @@ public class Jogos {
         this.bPrimeiroJogo = true;
 
     }
+    
+    public int getqtdJogos() {
+        return qtdJogos;
+    }
+    public int[]getUltimoArray(){
+        return LPlacar.get(qtdJogos - 1);
+    }
+    
 
     public void AtualizaTabela(int placar) {
         if (placar < 0) {
@@ -69,16 +79,6 @@ public class Jogos {
             LPlacar.add(tabela);
 
         }
-
-
-    public void AdicionaPlacar() {
-
-        AtualizaTabela(12);
-        AtualizaTabela(24);
-        AtualizaTabela(10);
-        AtualizaTabela(24);
-
-    }
 
     public void EscreveTabela() {
 
