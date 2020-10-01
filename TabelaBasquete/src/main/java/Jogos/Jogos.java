@@ -36,10 +36,6 @@ public class Jogos {
     
 
     public void AtualizaTabela(int placar) {
-        if (placar < 0) {
-            return;
-        }
-
         qtdJogos = qtdJogos + 1;
 
         if (!bPrimeiroJogo) {

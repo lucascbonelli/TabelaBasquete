@@ -8,8 +8,9 @@ public class NewJFrame extends javax.swing.JFrame {
     
     public NewJFrame() {
         initComponents();
-        jLabel2.setVisible(false);
+        labelAviso.setVisible(false);
         
+
     }
 
     /**
@@ -25,7 +26,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         buttonOK = new javax.swing.JButton();
         editPlacar = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        labelAviso = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         gridResultados = new javax.swing.JTable();
@@ -47,11 +48,16 @@ public class NewJFrame extends javax.swing.JFrame {
                 buttonOKActionPerformed(evt);
             }
         });
+        buttonOK.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buttonOKKeyPressed(evt);
+            }
+        });
 
         editPlacar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
 
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("Valor incorreto, tente novamente");
+        labelAviso.setForeground(new java.awt.Color(255, 0, 0));
+        labelAviso.setText("Valor incorreto, tente novamente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,7 +71,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonOK)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelAviso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -76,7 +82,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(buttonOK)
                     .addComponent(editPlacar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -89,6 +95,10 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(gridResultados);
+        if (gridResultados.getColumnModel().getColumnCount() > 0) {
+            gridResultados.getColumnModel().getColumn(4).setHeaderValue("Quebra Rec. Min");
+            gridResultados.getColumnModel().getColumn(5).setHeaderValue("Quebra Rec. Min");
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,11 +132,11 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOKActionPerformed
-        jLabel2.setVisible(false);
+        labelAviso.setVisible(false);
 
         int iPlacar = Integer.parseInt(editPlacar.getText());
         if ((iPlacar>1000) || (iPlacar<0)){
-            jLabel2.setVisible(true);
+            labelAviso.setVisible(true);
             
         }else
         {
@@ -138,6 +148,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private void buttonOKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonOKMouseClicked
       
     }//GEN-LAST:event_buttonOKMouseClicked
+    private void buttonOKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonOKKeyPressed
+    
+   
+    }//GEN-LAST:event_buttonOKKeyPressed
 
     /**
      * @param args the command line arguments
@@ -179,10 +193,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField editPlacar;
     private javax.swing.JTable gridResultados;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelAviso;
     // End of variables declaration//GEN-END:variables
 
     private void AtualizaGrid() {
@@ -194,4 +208,5 @@ public class NewJFrame extends javax.swing.JFrame {
         
         
     }
+
 }
