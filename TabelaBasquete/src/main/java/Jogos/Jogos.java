@@ -42,13 +42,6 @@ public class Jogos {
 
         qtdJogos = qtdJogos + 1;
 
-        if (MinTemp < placar) {
-            MinTemp = placar;
-        }
-
-        if (MaxTemp < placar) {
-            MaxTemp = placar;
-        }
         if (!bPrimeiroJogo) {
 
             if (QRMax < placar) {
@@ -60,11 +53,21 @@ public class Jogos {
                 iQRMin = iQRMin +1;
                 QRMin = placar;
             }
+            if (MinTemp > placar) {
+                MinTemp = placar;
+            }
+
+            if (MaxTemp < placar) {
+                MaxTemp = placar;
+            }
+
         }
         else{
             bPrimeiroJogo = false;
             QRMax = placar;
             QRMin = placar;
+            MinTemp = placar;
+            MaxTemp = placar;
         }
 
         int[] tabela = new int[5];
