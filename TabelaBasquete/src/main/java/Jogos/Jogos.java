@@ -15,7 +15,11 @@ public class Jogos {
     private boolean bPrimeiroJogo;
 
     public Jogos() {
+        ZeraDados();        
 
+    }
+    
+    private void ZeraDados(){
         this.MinTemp = 0;
         this.MaxTemp = 0;
         this.QRMin = 0;
@@ -24,7 +28,6 @@ public class Jogos {
         this.iQRMax = 0;
         this.qtdJogos = 0;
         this.bPrimeiroJogo = true;
-
     }
     
     public int getqtdJogos() {
@@ -78,16 +81,15 @@ public class Jogos {
             LPlacar.add(tabela);
 
         }
-
-    public void EscreveTabela() {
-
-        System.out.println("Jogo    Placar  Min. Temp   Max. Temp   Record Min  Record Max");
-        for (int n = 0; n < this.qtdJogos; n = n + 1) {
-            int[] Valor = LPlacar.get(n);
-            System.out.println((n+1)+"         "+Valor[0] + "        " +
-                                                 Valor[1] + "          " +Valor[2] + "             " +
-                                                 Valor[3] + "          " +Valor[4] );
+    public void resetJogos(){
+//        LPlacar.clear();
+        
+        while(LPlacar.size() > 0){
+            LPlacar.remove(0);
         }
+        
+        ZeraDados();
+        
     }
 }
 
