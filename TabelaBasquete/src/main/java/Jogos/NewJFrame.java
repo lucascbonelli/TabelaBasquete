@@ -155,6 +155,25 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOKActionPerformed
+        AdicionaPlacar();
+        }//GEN-LAST:event_buttonOKActionPerformed
+
+    private void buttonOKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonOKMouseClicked
+      
+    }//GEN-LAST:event_buttonOKMouseClicked
+    private void buttonOKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonOKKeyPressed
+     
+    }//GEN-LAST:event_buttonOKKeyPressed
+
+    private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
+        jogo.resetJogos();
+        DefaultTableModel tblRemove = (DefaultTableModel)gridResultados.getModel();
+        while (tblRemove.getRowCount() > 0)
+            tblRemove.removeRow(0);
+    }//GEN-LAST:event_buttonResetActionPerformed
+
+    private void AdicionaPlacar()
+    {
         labelAviso.setVisible(false);
 
         int iPlacar = Integer.parseInt(editPlacar.getText());
@@ -166,23 +185,8 @@ public class NewJFrame extends javax.swing.JFrame {
             jogo.AtualizaTabela(iPlacar);
             AtualizaGrid();
         }
-        }//GEN-LAST:event_buttonOKActionPerformed
-
-    private void buttonOKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonOKMouseClicked
-      
-    }//GEN-LAST:event_buttonOKMouseClicked
-    private void buttonOKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonOKKeyPressed
-        
-   
-    }//GEN-LAST:event_buttonOKKeyPressed
-
-    private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
-        jogo.resetJogos();
-        DefaultTableModel tblRemove = (DefaultTableModel)gridResultados.getModel();
-        while (tblRemove.getRowCount() > 0)
-        tblRemove.removeRow(0);
-    }//GEN-LAST:event_buttonResetActionPerformed
-
+    }
+    
     private void editPlacarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editPlacarKeyTyped
         String caracteres="0987654321";
         if(!caracteres.contains(evt.getKeyChar()+"")){

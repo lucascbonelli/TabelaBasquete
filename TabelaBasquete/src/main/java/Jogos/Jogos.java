@@ -82,8 +82,7 @@ public class Jogos {
 
         }
     public void resetJogos(){
-//        LPlacar.clear();
-        
+       
         while(LPlacar.size() > 0){
             LPlacar.remove(0);
         }
